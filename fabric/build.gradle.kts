@@ -31,9 +31,16 @@ dependencies {
     runtimeOnly(providers.gradleProperty("runtime.modmenu").map { "maven.modrinth:modmenu:$it" })
 }
 
-loom {
-    splitEnvironmentSourceSets()
+loom.splitEnvironmentSourceSets()
 
+fabricApi.configureDataGeneration {
+    modId = "${projectId}_data"
+    client = true
+    outputDirectory = projectDir.resolve("src/main/generated")
+    createSourceSet = true
+}
+
+loom {
     mods {
         create(projectId) {
             sourceSet(sourceSets.main.get())
@@ -53,3 +60,5 @@ loom {
         named("server") { server() }
     }
 }
+
+

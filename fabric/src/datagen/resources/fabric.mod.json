@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "rosewood_utilities_data",
+  "version": "1.0.0",
+  "name": "Rosewood Utilities: Data",
+  "authors": [ "Rosie Green" ],
+  "license": [ "MIT", "CC-BY-SA-4.0" ],
+  "entrypoints": {
+    "fabric-datagen": [ "rosie.green.rosewood.RosewoodDatagen" ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#minecraft:netherite_tool_materials",
+  "base": "rosewood_utilities:diamond_scythe",
+  "result": {
+    "id": "rosewood_utilities:netherite_scythe"
+  },
+  "template": "minecraft:netherite_upgrade_smithing_template"
+}

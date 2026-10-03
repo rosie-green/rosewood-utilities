@@ -1,0 +1,12 @@
+{
+    "item.rosewood_utilities.wooden_scythe":    "Wooden Scythe",
+    "item.rosewood_utilities.stone_scythe":     "Stone Scythe",
+    "item.rosewood_utilities.copper_scythe":    "Copper Scythe",
+    "item.rosewood_utilities.iron_scythe":      "Iron Scythe",
+    "item.rosewood_utilities.golden_scythe":    "Golden Scythe",
+    "item.rosewood_utilities.diamond_scythe":   "Diamond Scythe",
+    "item.rosewood_utilities.netherite_scythe": "Netherite Scythe",
+    "tag.item.rosewood_utilities.scythes":      "Scythes",
+
+    "item.rosewood_utilities.crafting_pad":     "Crafting Pad"
+}

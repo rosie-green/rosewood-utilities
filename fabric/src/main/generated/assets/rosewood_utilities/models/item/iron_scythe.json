@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "rosewood_utilities:item/iron_scythe"
+  }
+}

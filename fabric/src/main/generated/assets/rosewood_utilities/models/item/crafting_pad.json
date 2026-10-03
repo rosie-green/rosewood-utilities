@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "rosewood_utilities:item/crafting_pad"
+  }
+}
