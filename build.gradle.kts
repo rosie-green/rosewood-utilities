@@ -8,15 +8,13 @@ tasks.wrapper {
     distributionType = Wrapper.DistributionType.BIN
 }
 
-fun shouldBeExcluded(file: File): Boolean {
-    if (file.isDirectory) {
-        val excludedFolderNames = setOf("runs", "build")
+val projectFolders = arrayOf(
+    rootDir,
+    rootDir.resolve("build-logic"),
+    rootDir.resolve("fabric")
+)
 
-        return file.name in excludedFolderNames
-    }
-
-    return false
-}
+val excludedFolders = arrayOf("build", "runs", ".kotlin")
 
 idea {
     module {
@@ -24,7 +22,9 @@ idea {
         isDownloadJavadoc = true
 
         excludeDirs.addAll(
-            rootDir.walkTopDown().filter(::shouldBeExcluded)
+            projectFolders.flatMap { folder ->
+                excludedFolders.map { folder.resolve(it) }
+            }
         )
     }
 }

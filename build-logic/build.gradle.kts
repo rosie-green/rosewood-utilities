@@ -1,8 +1,6 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
-    kotlin("jvm") version "2.4.0"
     `kotlin-dsl`
 }
 
@@ -19,7 +17,5 @@ tasks.withType<JavaCompile>().configureEach {
 kotlin {
     compilerOptions {
         jvmTarget = JvmTarget.JVM_25
-        languageVersion = KotlinVersion.KOTLIN_2_4
-        apiVersion = KotlinVersion.KOTLIN_2_4
     }
 }
