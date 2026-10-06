@@ -5,10 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.*;
 import rosie.green.rosewood.Rosewood;
 import rosie.green.rosewood.items.CraftingPad;
 import rosie.green.rosewood.items.ScytheItem;
@@ -62,6 +59,12 @@ public class ModItems {
         "crafting_pad",
         CraftingPad::new,
         new Item.Properties().stacksTo(1)
+    );
+
+    public static BlockItem REINFORCED_STONE = register(
+        "reinforced_stone",
+        properties -> new BlockItem(ModBlocks.REINFORCED_STONE, properties),
+        new Item.Properties().useBlockDescriptionPrefix()
     );
 
     public static void init() {

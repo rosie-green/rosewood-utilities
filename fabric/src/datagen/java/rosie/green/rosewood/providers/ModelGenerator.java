@@ -5,7 +5,9 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TexturedModel;
 import org.jspecify.annotations.NullMarked;
+import rosie.green.rosewood.registration.ModBlocks;
 import rosie.green.rosewood.registration.ModItems;
 
 @NullMarked
@@ -16,7 +18,7 @@ public class ModelGenerator extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators generators) {
-
+        generators.createTrivialBlock(ModBlocks.REINFORCED_STONE, TexturedModel.CUBE_TOP);
     }
 
     @Override

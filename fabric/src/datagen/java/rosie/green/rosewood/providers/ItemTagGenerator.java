@@ -16,8 +16,8 @@ import java.util.concurrent.CompletableFuture;
 
 @NullMarked
 public class ItemTagGenerator extends FabricTagsProvider.ItemTagsProvider {
-    public ItemTagGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, registries);
+    public ItemTagGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registries, BlockTagGenerator blockTagGenerator) {
+        super(output, registries, blockTagGenerator);
     }
 
     @Override

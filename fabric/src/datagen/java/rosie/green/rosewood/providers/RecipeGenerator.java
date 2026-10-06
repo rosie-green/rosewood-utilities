@@ -1,5 +1,6 @@
 package rosie.green.rosewood.providers;
 
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -7,6 +8,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
+import rosie.green.rosewood.registration.ModBlocks;
 import rosie.green.rosewood.registration.ModItems;
 
 public class RecipeGenerator extends RecipeProvider {
@@ -79,6 +81,16 @@ public class RecipeGenerator extends RecipeProvider {
             .define('S', Items.STICK)
             .define('C', Items.CRAFTING_TABLE)
             .unlockedBy(getHasName(Items.CRAFTING_TABLE), has(Items.CRAFTING_TABLE))
+            .save(output);
+
+        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_STONE, 3)
+            .pattern("ISI")
+            .pattern("CSC")
+            .pattern("ISI")
+            .define('I', ConventionalItemTags.IRON_INGOTS)
+            .define('C', Items.IRON_CHAIN)
+            .define('S', Items.STONE)
+            .unlockedBy(getHasName(Items.STONE), has(Items.STONE))
             .save(output);
     }
 }

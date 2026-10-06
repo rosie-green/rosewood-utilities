@@ -1,4 +1,5 @@
 // 26.4-snapshot-1	-999999999-01-01T00:00:00	Rosewood Utilities/Recipes
+42b92ea9fbc9a7c35b625a058edc6d395357d8b1 data/rosewood_utilities/advancement/recipes/building_blocks/reinforced_stone.json
 bbe9dbe6bc4f8c1b4c3e9bbb32e736ac46a7829d data/rosewood_utilities/advancement/recipes/tools/copper_scythe.json
 74445bbb3d6bc88d5abe2b0cbeec8d0975f5a513 data/rosewood_utilities/advancement/recipes/tools/crafting_pad.json
 1208a0984e6831537fc48afb41e16c2928d23945 data/rosewood_utilities/advancement/recipes/tools/diamond_scythe.json
@@ -13,5 +14,6 @@ c4c5ab0fd479d0394ee9e05ffee709c5f117e56c data/rosewood_utilities/recipe/diamond_
 351eee706da3f523ce93f72a273c039db0360f32 data/rosewood_utilities/recipe/golden_scythe.json
 705afebbc3120e1c21e242c89d33a664a120ad5f data/rosewood_utilities/recipe/iron_scythe.json
 1fd9604206889f21e51d5f8371c5e2b4637aca25 data/rosewood_utilities/recipe/netherite_scythe_smithing.json
+5bb6e0036d8dd4590fc77a887dcbcb50543de95b data/rosewood_utilities/recipe/reinforced_stone.json
 9b9dbb498dd352eefc73596bd10149cbb77d80b8 data/rosewood_utilities/recipe/stone_scythe.json
 a0a150393b641ff6793af118fcb1b79105d61676 data/rosewood_utilities/recipe/wooden_scythe.json

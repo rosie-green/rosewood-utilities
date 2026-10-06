@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_top",
+  "textures": {
+    "side": "rosewood_utilities:block/reinforced_stone_side",
+    "top": "rosewood_utilities:block/reinforced_stone_top"
+  }
+}
