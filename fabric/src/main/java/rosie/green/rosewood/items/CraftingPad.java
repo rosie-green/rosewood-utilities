@@ -5,6 +5,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.CraftingMenu;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
@@ -26,6 +27,6 @@ public class CraftingPad extends Item {
     }
 
     private CraftingMenu createMenu(int containerId, Inventory inventory, final Player player) {
-        return new CraftingMenu(containerId, inventory);
+        return new CraftingPadMenu(containerId, inventory, ContainerLevelAccess.create(player.level(), player.blockPosition()));
     }
 }
