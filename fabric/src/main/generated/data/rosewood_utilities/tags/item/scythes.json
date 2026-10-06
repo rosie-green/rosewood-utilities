@@ -6,6 +6,7 @@
     "rosewood_utilities:iron_scythe",
     "rosewood_utilities:golden_scythe",
     "rosewood_utilities:diamond_scythe",
-    "rosewood_utilities:netherite_scythe"
+    "rosewood_utilities:netherite_scythe",
+    "rosewood_utilities:reinforced_stone_scythe"
   ]
 }
