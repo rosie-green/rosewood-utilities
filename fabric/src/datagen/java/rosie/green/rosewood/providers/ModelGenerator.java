@@ -38,6 +38,7 @@ public class ModelGenerator extends FabricModelProvider {
         generators.generateFlatItem(ModItems.REINFORCED_STONE_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
         generators.generateFlatItem(ModItems.REINFORCED_STONE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
         generators.generateFlatItem(ModItems.REINFORCED_STONE_HOE, ModelTemplates.FLAT_HANDHELD_ITEM);
+        generators.generateSpear(ModItems.REINFORCED_STONE_SPEAR);
         generators.generateFlatItem(ModItems.REINFORCED_STONE_SCYTHE, ModelTemplates.FLAT_HANDHELD_ITEM);
     }
 }

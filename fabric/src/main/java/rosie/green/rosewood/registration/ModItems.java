@@ -97,6 +97,12 @@ public class ModItems {
         new Item.Properties().hoe(ToolMaterial.STONE, -1.0F, -2.0F).durability(781).repairable(REINFORCED_STONE)
     );
 
+    public static final Item REINFORCED_STONE_SPEAR = registerScythe(
+        "reinforced_stone_spear",
+        new Item.Properties().spear(ToolMaterial.STONE, 0.75F, 0.82F, 0.7F, 4.5F, 13.0F, 9.0F, 5.1F, 13.75F, 4.6F).durability(781).repairable(REINFORCED_STONE),
+        8
+    );
+
     public static final Item REINFORCED_STONE_SCYTHE = registerScythe(
         "reinforced_stone_scythe",
         new Item.Properties().hoe(ToolMaterial.STONE, -1.0F, -2.0F).durability(781).repairable(REINFORCED_STONE),
@@ -122,6 +128,7 @@ public class ModItems {
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(entries -> {
             entries.insertAfter(Items.STONE_SWORD, REINFORCED_STONE_SWORD);
+            entries.insertAfter(Items.STONE_SPEAR, REINFORCED_STONE_SPEAR);
         });
     }
 }

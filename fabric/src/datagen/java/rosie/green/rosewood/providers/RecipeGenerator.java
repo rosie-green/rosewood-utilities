@@ -137,6 +137,15 @@ public class RecipeGenerator extends RecipeProvider {
             .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
             .save(output);
 
+        shaped(RecipeCategory.COMBAT, ModItems.REINFORCED_STONE_SPEAR)
+            .pattern("  M")
+            .pattern(" S ")
+            .pattern("S  ")
+            .define('M', ModItems.REINFORCED_STONE)
+            .define('S', Items.STICK)
+            .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
+            .save(output);
+
         shaped(RecipeCategory.TOOLS, ModItems.REINFORCED_STONE_SCYTHE)
             .pattern("MMM")
             .pattern(" S ")
