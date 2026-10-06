@@ -10,5 +10,12 @@
 
     "item.rosewood_utilities.crafting_pad":      "Crafting Pad",
 
-    "block.rosewood_utilities.reinforced_stone": "Reinforced Stone"
+    "block.rosewood_utilities.reinforced_stone": "Reinforced Stone",
+
+    "item.rosewood_utilities.reinforced_stone_sword": "Reinforced Stone Sword",
+    "item.rosewood_utilities.reinforced_stone_shovel": "Reinforced Stone Shovel",
+    "item.rosewood_utilities.reinforced_stone_pickaxe": "Reinforced Stone Pickaxe",
+    "item.rosewood_utilities.reinforced_stone_axe": "Reinforced Stone Axe",
+    "item.rosewood_utilities.reinforced_stone_hoe": "Reinforced Stone Hoe",
+    "item.rosewood_utilities.reinforced_stone_scythe": "Reinforced Stone Scythe"
 }

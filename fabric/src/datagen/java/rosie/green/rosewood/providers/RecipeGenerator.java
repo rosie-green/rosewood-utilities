@@ -8,7 +8,6 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
-import rosie.green.rosewood.registration.ModBlocks;
 import rosie.green.rosewood.registration.ModItems;
 
 public class RecipeGenerator extends RecipeProvider {
@@ -83,7 +82,7 @@ public class RecipeGenerator extends RecipeProvider {
             .unlockedBy(getHasName(Items.CRAFTING_TABLE), has(Items.CRAFTING_TABLE))
             .save(output);
 
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_STONE, 3)
+        shaped(RecipeCategory.BUILDING_BLOCKS, ModItems.REINFORCED_STONE, 3)
             .pattern("ISI")
             .pattern("CSC")
             .pattern("ISI")
@@ -91,6 +90,60 @@ public class RecipeGenerator extends RecipeProvider {
             .define('C', Items.IRON_CHAIN)
             .define('S', Items.STONE)
             .unlockedBy(getHasName(Items.STONE), has(Items.STONE))
+            .save(output);
+
+        shaped(RecipeCategory.COMBAT, ModItems.REINFORCED_STONE_SWORD)
+            .pattern("M")
+            .pattern("M")
+            .pattern("S")
+            .define('M', ModItems.REINFORCED_STONE)
+            .define('S', Items.STICK)
+            .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
+            .save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.REINFORCED_STONE_SHOVEL)
+            .pattern("M")
+            .pattern("S")
+            .pattern("S")
+            .define('M', ModItems.REINFORCED_STONE)
+            .define('S', Items.STICK)
+            .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
+            .save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.REINFORCED_STONE_PICKAXE)
+            .pattern("MMM")
+            .pattern(" S ")
+            .pattern(" S ")
+            .define('M', ModItems.REINFORCED_STONE)
+            .define('S', Items.STICK)
+            .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
+            .save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.REINFORCED_STONE_AXE)
+            .pattern("MM")
+            .pattern("MS")
+            .pattern(" S")
+            .define('M', ModItems.REINFORCED_STONE)
+            .define('S', Items.STICK)
+            .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
+            .save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.REINFORCED_STONE_HOE)
+            .pattern("MM")
+            .pattern(" S")
+            .pattern(" S")
+            .define('M', ModItems.REINFORCED_STONE)
+            .define('S', Items.STICK)
+            .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
+            .save(output);
+
+        shaped(RecipeCategory.TOOLS, ModItems.REINFORCED_STONE_SCYTHE)
+            .pattern("MMM")
+            .pattern(" S ")
+            .pattern("S  ")
+            .define('M', ModItems.REINFORCED_STONE)
+            .define('S', Items.STICK)
+            .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
             .save(output);
     }
 }

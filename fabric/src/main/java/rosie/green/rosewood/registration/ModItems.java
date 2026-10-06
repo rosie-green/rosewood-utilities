@@ -67,16 +67,61 @@ public class ModItems {
         new Item.Properties().useBlockDescriptionPrefix()
     );
 
+    public static final Item REINFORCED_STONE_SWORD = register(
+        "reinforced_stone_sword",
+        Item::new,
+        new Item.Properties().sword(ToolMaterial.STONE, 3.0F, -2.4F).durability(781).repairable(REINFORCED_STONE)
+    );
+
+    public static final Item REINFORCED_STONE_SHOVEL = register(
+        "reinforced_stone_shovel",
+        Item::new,
+        new Item.Properties().shovel(ToolMaterial.STONE, 1.5F, -3.0F).durability(781).repairable(REINFORCED_STONE)
+    );
+
+    public static final Item REINFORCED_STONE_PICKAXE = register(
+        "reinforced_stone_pickaxe",
+        Item::new,
+        new Item.Properties().pickaxe(ToolMaterial.STONE, 1.0F, -2.8F).durability(781).repairable(REINFORCED_STONE)
+    );
+
+    public static final Item REINFORCED_STONE_AXE = register(
+        "reinforced_stone_axe",
+        Item::new,
+        new Item.Properties().axe(ToolMaterial.STONE, 7.0F, -3.2F).durability(781).repairable(REINFORCED_STONE)
+    );
+
+    public static final Item REINFORCED_STONE_HOE = register(
+        "reinforced_stone_hoe",
+        Item::new,
+        new Item.Properties().hoe(ToolMaterial.STONE, -1.0F, -2.0F).durability(781).repairable(REINFORCED_STONE)
+    );
+
+    public static final Item REINFORCED_STONE_SCYTHE = registerScythe(
+        "reinforced_stone_scythe",
+        new Item.Properties().hoe(ToolMaterial.STONE, -1.0F, -2.0F).durability(781).repairable(REINFORCED_STONE),
+        8
+    );
+
     public static void init() {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
+            entries.insertAfter(Items.MOSSY_STONE_BRICK_WALL, REINFORCED_STONE);
+        });
+
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
             entries.insertAfter(Items.WOODEN_HOE, WOODEN_SCYTHE);
-            entries.insertAfter(Items.STONE_HOE, STONE_SCYTHE);
+            entries.insertAfter(Items.STONE_HOE, STONE_SCYTHE, REINFORCED_STONE_SHOVEL, REINFORCED_STONE_PICKAXE, REINFORCED_STONE_AXE, REINFORCED_STONE_HOE, REINFORCED_STONE_SCYTHE);
             entries.insertAfter(Items.COPPER_HOE, COPPER_SCYTHE);
             entries.insertAfter(Items.IRON_HOE, IRON_SCYTHE);
             entries.insertAfter(Items.GOLDEN_HOE, GOLDEN_SCYTHE);
             entries.insertAfter(Items.DIAMOND_HOE, DIAMOND_SCYTHE);
             entries.insertAfter(Items.NETHERITE_HOE, NETHERITE_SCYTHE);
+
             entries.accept(CRAFTING_PAD);
+        });
+
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(entries -> {
+            entries.insertAfter(Items.STONE_SWORD, REINFORCED_STONE_SWORD);
         });
     }
 }
