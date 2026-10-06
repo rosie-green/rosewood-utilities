@@ -33,6 +33,13 @@ public class ItemTagGenerator extends FabricTagsProvider.ItemTagsProvider {
         add(scythesAppender, ModItems.DIAMOND_SCYTHE);
         add(scythesAppender, ModItems.NETHERITE_SCYTHE);
 
+        add(tag(ItemTags.SWORDS), ModItems.REINFORCED_STONE_SWORD);
+        add(tag(ItemTags.SHOVELS), ModItems.REINFORCED_STONE_SHOVEL);
+        add(tag(ItemTags.PICKAXES), ModItems.REINFORCED_STONE_PICKAXE);
+        add(tag(ItemTags.AXES), ModItems.REINFORCED_STONE_AXE);
+        add(tag(ItemTags.HOES), ModItems.REINFORCED_STONE_HOE);
+        add(tag(ItemTags.SPEARS), ModItems.REINFORCED_STONE_SPEAR);
+
         tag(ItemTags.MINING_ENCHANTABLE)
             .addTag(scythes);
 

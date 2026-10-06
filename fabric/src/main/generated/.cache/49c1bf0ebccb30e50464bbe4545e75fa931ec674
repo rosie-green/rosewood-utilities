@@ -1,5 +1,11 @@
 // 26.4-snapshot-1	-999999999-01-01T00:00:00	Rosewood Utilities/Tags for minecraft:item
+87148ad59a9c250cbae6a7d622030b8647bf5927 data/minecraft/tags/item/axes.json
 8fe01f9758730947125a2722ae98b9d774cb6028 data/minecraft/tags/item/enchantable/durability.json
 8fe01f9758730947125a2722ae98b9d774cb6028 data/minecraft/tags/item/enchantable/mining.json
 8fe01f9758730947125a2722ae98b9d774cb6028 data/minecraft/tags/item/enchantable/mining_loot.json
+f014173866cd62a8b2c5f7fcaf4dc97bd9a7549e data/minecraft/tags/item/hoes.json
+054376bcccb20a7217881c3fd26542983e0e43dc data/minecraft/tags/item/pickaxes.json
+907e1291bd22025b8c75e8d71ccece152b8880a0 data/minecraft/tags/item/shovels.json
+2f54153867605f0c762b4b9bd2b404383ed8a947 data/minecraft/tags/item/spears.json
+2f26ecf3c0b1fe0aa289474279132df88aee64b8 data/minecraft/tags/item/swords.json
 3d4ec60b442ddd794aaf32ceec4e824feb637ead data/rosewood_utilities/tags/item/scythes.json
