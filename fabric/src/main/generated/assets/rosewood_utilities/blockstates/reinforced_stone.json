@@ -1,7 +1,16 @@
 {
   "variants": {
-    "": {
+    "axis=x": {
+      "model": "rosewood_utilities:block/reinforced_stone",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
       "model": "rosewood_utilities:block/reinforced_stone"
+    },
+    "axis=z": {
+      "model": "rosewood_utilities:block/reinforced_stone",
+      "x": 90
     }
   }
 }

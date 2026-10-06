@@ -18,7 +18,7 @@ public class ModelGenerator extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators generators) {
-        generators.createTrivialBlock(ModBlocks.REINFORCED_STONE, TexturedModel.CUBE_TOP);
+        generators.createAxisAlignedPillarBlock(ModBlocks.REINFORCED_STONE, TexturedModel.CUBE_TOP);
     }
 
     @Override
