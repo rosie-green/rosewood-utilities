@@ -20,13 +20,13 @@ public class CraftingPad extends Item {
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
         if (!level.isClientSide()) {
-            player.openMenu(new SimpleMenuProvider(this::createMenu, this.getName(player.getItemInHand(hand))));
+            player.openMenu(new SimpleMenuProvider(((id, inv, ply) -> createMenu(id, inv, ply, hand)), this.getName(player.getItemInHand(hand))));
         }
 
         return InteractionResult.SUCCESS_SERVER;
     }
 
-    private CraftingMenu createMenu(int containerId, Inventory inventory, final Player player) {
-        return new CraftingPadMenu(containerId, inventory, ContainerLevelAccess.create(player.level(), player.blockPosition()));
+    private CraftingMenu createMenu(int containerId, Inventory inventory, Player player, InteractionHand hand) {
+        return new CraftingPadMenu(containerId, inventory, ContainerLevelAccess.create(player.level(), player.blockPosition()), hand);
     }
 }

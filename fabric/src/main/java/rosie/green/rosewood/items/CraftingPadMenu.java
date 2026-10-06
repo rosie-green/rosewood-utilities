@@ -1,19 +1,24 @@
 package rosie.green.rosewood.items;
 
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.CraftingMenu;
 import org.jspecify.annotations.NullMarked;
+import rosie.green.rosewood.registration.ModItems;
 
 @NullMarked
 public class CraftingPadMenu extends CraftingMenu {
-    public CraftingPadMenu(int containerId, Inventory inventory, ContainerLevelAccess access) {
+    private final InteractionHand hand;
+
+    public CraftingPadMenu(int containerId, Inventory inventory, ContainerLevelAccess access, InteractionHand hand) {
         super(containerId, inventory, access);
+        this.hand = hand;
     }
 
     @Override
     public boolean stillValid(Player player) {
-        return true;
+        return player.getItemInHand(hand).is(ModItems.CRAFTING_PAD);
     }
 }

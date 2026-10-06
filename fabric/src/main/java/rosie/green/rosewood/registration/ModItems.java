@@ -53,7 +53,7 @@ public class ModItems {
     public static final ScytheItem IRON_SCYTHE = registerScythe("iron_scythe", new Item.Properties().hoe(ToolMaterial.IRON, -2.0F, -1.0F), 16);
     public static final ScytheItem GOLDEN_SCYTHE = registerScythe("golden_scythe", new Item.Properties().hoe(ToolMaterial.GOLD, 0.0F, -3.0F), 10);
     public static final ScytheItem DIAMOND_SCYTHE = registerScythe("diamond_scythe", new Item.Properties().hoe(ToolMaterial.DIAMOND, -3.0F, 0.0F), 20);
-    public static final ScytheItem NETHERITE_SCYTHE = registerScythe("netherite_scythe", new Item.Properties().hoe(ToolMaterial.NETHERITE, -4.0F, 0.0F), 40);
+    public static final ScytheItem NETHERITE_SCYTHE = registerScythe("netherite_scythe", new Item.Properties().hoe(ToolMaterial.NETHERITE, -4.0F, 0.0F).fireResistant(), 40);
 
     public static final CraftingPad CRAFTING_PAD = register(
         "crafting_pad",
@@ -97,10 +97,10 @@ public class ModItems {
         new Item.Properties().hoe(ToolMaterial.STONE, -1.0F, -2.0F).durability(781).repairable(REINFORCED_STONE)
     );
 
-    public static final Item REINFORCED_STONE_SPEAR = registerScythe(
+    public static final Item REINFORCED_STONE_SPEAR = register(
         "reinforced_stone_spear",
-        new Item.Properties().spear(ToolMaterial.STONE, 0.75F, 0.82F, 0.7F, 4.5F, 13.0F, 9.0F, 5.1F, 13.75F, 4.6F).durability(781).repairable(REINFORCED_STONE),
-        8
+        Item::new,
+        new Item.Properties().spear(ToolMaterial.STONE, 0.75F, 0.82F, 0.7F, 4.5F, 13.0F, 9.0F, 5.1F, 13.75F, 4.6F).durability(781).repairable(REINFORCED_STONE)
     );
 
     public static final Item REINFORCED_STONE_SCYTHE = registerScythe(
