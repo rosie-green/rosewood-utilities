@@ -20,10 +20,10 @@ public class BlockTagGenerator extends FabricTagsProvider.BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider registries) {
         var mineableWithPickaxe = tag(BlockTags.MINEABLE_WITH_PICKAXE);
-        var needsIronTool = tag(BlockTags.NEEDS_IRON_TOOL);
+        var needsStoneTool = tag(BlockTags.NEEDS_STONE_TOOL);
 
         add(mineableWithPickaxe, ModBlocks.REINFORCED_STONE);
-        add(needsIronTool, ModBlocks.REINFORCED_STONE);
+        add(needsStoneTool, ModBlocks.REINFORCED_STONE);
     }
 
     private void add(TagAppender<Block> tag, Block block) {

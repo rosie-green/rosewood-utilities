@@ -1,3 +1,3 @@
 // 26.4-snapshot-1	-999999999-01-01T00:00:00	Rosewood Utilities/Tags for minecraft:block
 d4f0701bec8b79db00edd66cf85de0549b8210aa data/minecraft/tags/block/mineable/pickaxe.json
-d4f0701bec8b79db00edd66cf85de0549b8210aa data/minecraft/tags/block/needs_iron_tool.json
+d4f0701bec8b79db00edd66cf85de0549b8210aa data/minecraft/tags/block/needs_stone_tool.json
