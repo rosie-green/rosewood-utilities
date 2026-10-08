@@ -1,4 +1,4 @@
-package rosie.green.rosewood.providers;
+package rosie.green.rosewood.datagen.providers;
 
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.advancements.Advancement;

@@ -6,6 +6,6 @@
   "authors": [ "Rosie Green" ],
   "license": [ "MIT", "CC-BY-SA-4.0" ],
   "entrypoints": {
-    "fabric-datagen": [ "rosie.green.rosewood.RosewoodDatagen" ]
+    "fabric-datagen": [ "rosie.green.rosewood.datagen.RosewoodDatagen" ]
   }
 }

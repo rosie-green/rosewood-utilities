@@ -1,4 +1,4 @@
-package rosie.green.rosewood.providers;
+package rosie.green.rosewood.datagen.providers;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;

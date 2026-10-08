@@ -1,9 +1,10 @@
-package rosie.green.rosewood;
+package rosie.green.rosewood.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import org.jspecify.annotations.NullMarked;
-import rosie.green.rosewood.providers.*;
+import rosie.green.rosewood.Rosewood;
+import rosie.green.rosewood.datagen.providers.*;
 
 @NullMarked
 public class RosewoodDatagen implements DataGeneratorEntrypoint {
