@@ -9,6 +9,10 @@ import net.minecraft.world.item.Item;
 import rosie.green.rosewood.Rosewood;
 
 public class ModIds {
+    private ModIds() {
+        throw new IllegalStateException("Cannot instantiate an utility class.");
+    }
+
     public static final BlockItemId REINFORCED_STONE = block("reinforced_stone");
 
     public static final ResourceKey<Item> WOODEN_SCYTHE = item("wooden_scythe");

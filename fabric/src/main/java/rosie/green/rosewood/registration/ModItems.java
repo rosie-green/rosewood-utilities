@@ -53,7 +53,7 @@ public class ModItems {
         new Item.Properties().stacksTo(1)
     );
 
-    public static BlockItem REINFORCED_STONE = register(
+    public static final BlockItem REINFORCED_STONE = register(
         ModIds.REINFORCED_STONE.item(),
         properties -> new BlockItem(ModBlocks.REINFORCED_STONE, properties),
         new Item.Properties().useBlockDescriptionPrefix()
