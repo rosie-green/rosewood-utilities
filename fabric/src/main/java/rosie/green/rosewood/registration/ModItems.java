@@ -3,10 +3,8 @@ package rosie.green.rosewood.registration;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
-import rosie.green.rosewood.Rosewood;
 import rosie.green.rosewood.items.CraftingPad;
 import rosie.green.rosewood.items.ScytheItem;
 
@@ -17,29 +15,23 @@ public class ModItems {
         throw new IllegalStateException("Cannot instantiate an utility class.");
     }
 
-    private static ResourceKey<Item> createKey(String name) {
-        return ResourceKey.create(Registries.ITEM, Rosewood.id(name));
-    }
-
     private static ScytheItem registerScythe(
-        String name,
+        ResourceKey<Item> key,
         Item.Properties properties,
         int range
     ) {
         return register(
-            name,
+            key,
             props -> new ScytheItem(props, range),
             properties
         );
     }
 
     private static <T extends Item> T register(
-        String name,
+        ResourceKey<Item> key,
         Function<Item.Properties, T> constructor,
         Item.Properties properties
     ) {
-        var key = createKey(name);
-
         return Registry.register(
             BuiltInRegistries.ITEM,
             key,
@@ -47,64 +39,64 @@ public class ModItems {
         );
     }
 
-    public static final ScytheItem WOODEN_SCYTHE = registerScythe("wooden_scythe", new Item.Properties().hoe(ToolMaterial.WOOD, 0.0F, -3.0F), 5);
-    public static final ScytheItem STONE_SCYTHE = registerScythe("stone_scythe", new Item.Properties().hoe(ToolMaterial.STONE, -1.0F, -2.0F), 8);
-    public static final ScytheItem COPPER_SCYTHE = registerScythe("copper_scythe", new Item.Properties().hoe(ToolMaterial.COPPER, -2.0F, -1.0F), 10);
-    public static final ScytheItem IRON_SCYTHE = registerScythe("iron_scythe", new Item.Properties().hoe(ToolMaterial.IRON, -2.0F, -1.0F), 16);
-    public static final ScytheItem GOLDEN_SCYTHE = registerScythe("golden_scythe", new Item.Properties().hoe(ToolMaterial.GOLD, 0.0F, -3.0F), 10);
-    public static final ScytheItem DIAMOND_SCYTHE = registerScythe("diamond_scythe", new Item.Properties().hoe(ToolMaterial.DIAMOND, -3.0F, 0.0F), 20);
-    public static final ScytheItem NETHERITE_SCYTHE = registerScythe("netherite_scythe", new Item.Properties().hoe(ToolMaterial.NETHERITE, -4.0F, 0.0F).fireResistant(), 40);
+    public static final ScytheItem WOODEN_SCYTHE = registerScythe(ModIds.WOODEN_SCYTHE, new Item.Properties().hoe(ToolMaterial.WOOD, 0.0F, -3.0F), 5);
+    public static final ScytheItem STONE_SCYTHE = registerScythe(ModIds.STONE_SCYTHE, new Item.Properties().hoe(ToolMaterial.STONE, -1.0F, -2.0F), 8);
+    public static final ScytheItem COPPER_SCYTHE = registerScythe(ModIds.COPPER_SCYTHE, new Item.Properties().hoe(ToolMaterial.COPPER, -2.0F, -1.0F), 10);
+    public static final ScytheItem IRON_SCYTHE = registerScythe(ModIds.IRON_SCYTHE, new Item.Properties().hoe(ToolMaterial.IRON, -2.0F, -1.0F), 16);
+    public static final ScytheItem GOLDEN_SCYTHE = registerScythe(ModIds.GOLDEN_SCYTHE, new Item.Properties().hoe(ToolMaterial.GOLD, 0.0F, -3.0F), 10);
+    public static final ScytheItem DIAMOND_SCYTHE = registerScythe(ModIds.DIAMOND_SCYTHE, new Item.Properties().hoe(ToolMaterial.DIAMOND, -3.0F, 0.0F), 20);
+    public static final ScytheItem NETHERITE_SCYTHE = registerScythe(ModIds.NETHERITE_SCYTHE, new Item.Properties().hoe(ToolMaterial.NETHERITE, -4.0F, 0.0F).fireResistant(), 40);
 
     public static final CraftingPad CRAFTING_PAD = register(
-        "crafting_pad",
+        ModIds.CRAFTING_PAD,
         CraftingPad::new,
         new Item.Properties().stacksTo(1)
     );
 
     public static BlockItem REINFORCED_STONE = register(
-        "reinforced_stone",
+        ModIds.REINFORCED_STONE.item(),
         properties -> new BlockItem(ModBlocks.REINFORCED_STONE, properties),
         new Item.Properties().useBlockDescriptionPrefix()
     );
 
     public static final Item REINFORCED_STONE_SWORD = register(
-        "reinforced_stone_sword",
+        ModIds.REINFORCED_STONE_SWORD,
         Item::new,
         new Item.Properties().sword(ToolMaterial.STONE, 3.0F, -2.4F).durability(781).repairable(REINFORCED_STONE)
     );
 
     public static final Item REINFORCED_STONE_SHOVEL = register(
-        "reinforced_stone_shovel",
+        ModIds.REINFORCED_STONE_SHOVEL,
         Item::new,
         new Item.Properties().shovel(ToolMaterial.STONE, 1.5F, -3.0F).durability(781).repairable(REINFORCED_STONE)
     );
 
     public static final Item REINFORCED_STONE_PICKAXE = register(
-        "reinforced_stone_pickaxe",
+        ModIds.REINFORCED_STONE_PICKAXE,
         Item::new,
         new Item.Properties().pickaxe(ToolMaterial.STONE, 1.0F, -2.8F).durability(781).repairable(REINFORCED_STONE)
     );
 
     public static final Item REINFORCED_STONE_AXE = register(
-        "reinforced_stone_axe",
+        ModIds.REINFORCED_STONE_AXE,
         Item::new,
         new Item.Properties().axe(ToolMaterial.STONE, 7.0F, -3.2F).durability(781).repairable(REINFORCED_STONE)
     );
 
     public static final Item REINFORCED_STONE_HOE = register(
-        "reinforced_stone_hoe",
+        ModIds.REINFORCED_STONE_HOE,
         Item::new,
         new Item.Properties().hoe(ToolMaterial.STONE, -1.0F, -2.0F).durability(781).repairable(REINFORCED_STONE)
     );
 
     public static final Item REINFORCED_STONE_SPEAR = register(
-        "reinforced_stone_spear",
+        ModIds.REINFORCED_STONE_SPEAR,
         Item::new,
         new Item.Properties().spear(ToolMaterial.STONE, 0.75F, 0.82F, 0.7F, 4.5F, 13.0F, 9.0F, 5.1F, 13.75F, 4.6F).durability(781).repairable(REINFORCED_STONE)
     );
 
     public static final Item REINFORCED_STONE_SCYTHE = registerScythe(
-        "reinforced_stone_scythe",
+        ModIds.REINFORCED_STONE_SCYTHE,
         new Item.Properties().hoe(ToolMaterial.STONE, -1.0F, -2.0F).durability(781).repairable(REINFORCED_STONE),
         8
     );
