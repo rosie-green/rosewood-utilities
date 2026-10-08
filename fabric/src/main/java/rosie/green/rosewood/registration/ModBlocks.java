@@ -35,7 +35,6 @@ public class ModBlocks {
         BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).mapColor(MapColor.STONE).sound(SoundType.STONE)
     );
 
-    @SuppressWarnings("unused")
     public static void init() {
 
     }
