@@ -18,7 +18,7 @@ public class WoodenBucketDispenseBehavior extends DefaultDispenseItemBehavior {
         WoodenBucketItem bucket = (WoodenBucketItem) stack.getItem();
         if (bucket.getContent() != Fluids.EMPTY) {
             if (bucket.emptyContents(null, level, target, null)) {
-                return consumeWithRemainder(source, stack, new ItemStack(bucket.getCounterpart()));
+                return consumeWithRemainder(source, stack, new ItemStack(bucket.getEmptyBucket()));
             }
         } else {
             BlockState state = level.getBlockState(target);

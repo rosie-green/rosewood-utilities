@@ -4,7 +4,6 @@ import net.minecraft.advancements.triggers.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -21,27 +20,19 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import java.util.function.Supplier;
 import org.jspecify.annotations.Nullable;
 
 /** A reusable wooden bucket; Nether wood variants can also collect lava. */
 public class WoodenBucketItem extends BucketItem {
-    private final Supplier<WoodenBucketItem> counterpart;
-    private final @Nullable Supplier<WoodenBucketItem> lavaBucket;
+    private final WoodenBucketFamily family;
 
-    public WoodenBucketItem(Fluid content, Properties properties, Supplier<WoodenBucketItem> counterpart) {
-        this(content, properties, counterpart, null);
-    }
-
-    public WoodenBucketItem(Fluid content, Properties properties, Supplier<WoodenBucketItem> counterpart,
-                            @Nullable Supplier<WoodenBucketItem> lavaBucket) {
+    public WoodenBucketItem(Fluid content, Properties properties, WoodenBucketFamily family) {
         super(content, properties);
-        this.counterpart = counterpart;
-        this.lavaBucket = lavaBucket;
+        this.family = family;
     }
 
-    public WoodenBucketItem getCounterpart() {
-        return counterpart.get();
+    public WoodenBucketItem getEmptyBucket() {
+        return family.empty();
     }
 
     /** Resolve the filled variant before pickup so unsupported fluids remain intact. */
@@ -49,11 +40,11 @@ public class WoodenBucketItem extends BucketItem {
         if (getContent() != Fluids.EMPTY || !fluid.isSource()) {
             return null;
         }
-        if (fluid.is(FluidTags.WATER)) {
-            return getCounterpart();
+        if (fluid.getType() == Fluids.WATER) {
+            return family.water();
         }
-        if (fluid.is(FluidTags.LAVA) && lavaBucket != null) {
-            return lavaBucket.get();
+        if (fluid.getType() == Fluids.LAVA) {
+            return family.lava();
         }
         return null;
     }
@@ -66,7 +57,7 @@ public class WoodenBucketItem extends BucketItem {
             if (result instanceof InteractionResult.Success success
                 && success.heldItemTransformedTo() != null
                 && success.heldItemTransformedTo().is(Items.BUCKET)) {
-                return success.heldItemTransformedTo(new ItemStack(getCounterpart()));
+                return success.heldItemTransformedTo(new ItemStack(getEmptyBucket()));
             }
             return result;
         }

@@ -4,19 +4,18 @@ import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.DispenserBlock;
 import rosie.green.rosewood.items.CraftingPad;
 import rosie.green.rosewood.items.ScytheItem;
-import rosie.green.rosewood.items.WoodenBucketItem;
+import rosie.green.rosewood.items.WoodenBucketCauldronInteractions;
 import rosie.green.rosewood.items.WoodenBucketDispenseBehavior;
-import net.minecraft.world.level.block.DispenserBlock;
-import net.minecraft.world.level.material.Fluids;
+import rosie.green.rosewood.items.WoodenBucketFamily;
+import rosie.green.rosewood.items.WoodenBucketFluidStorage;
 
-import java.util.function.Function;
 import java.util.List;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
-import org.jspecify.annotations.Nullable;
+import java.util.function.Function;
 
 public class ModItems {
     private ModItems() {
@@ -45,56 +44,19 @@ public class ModItems {
 
     public static final CraftingPad CRAFTING_PAD = register(ModIds.CRAFTING_PAD, CraftingPad::new, new Item.Properties().stacksTo(1));
 
-    public record WoodenBucketVariant(String name, TagKey<Item> logs, WoodenBucketItem empty,
-                                      WoodenBucketItem water, @Nullable WoodenBucketItem lava) {
-        public List<WoodenBucketItem> items() {
-            return lava == null ? List.of(empty, water) : List.of(empty, water, lava);
-        }
-    }
-
-    private static WoodenBucketVariant registerWoodenBucket(String name, TagKey<Item> logs) {
-        return registerWoodenBucket(name, logs, false);
-    }
-
-    private static Item.Properties woodenBucketProperties(boolean supportsLava) {
-        Item.Properties properties = new Item.Properties();
-        return supportsLava ? properties.fireResistant() : properties;
-    }
-
-    private static WoodenBucketVariant registerWoodenBucket(String name, TagKey<Item> logs, boolean supportsLava) {
-        ResourceKey<Item> waterKey = ModIds.item(name + "_water_bucket");
-        ResourceKey<Item> lavaKey = ModIds.item(name + "_lava_bucket");
-        WoodenBucketItem empty = register(
-            ModIds.item(name + "_bucket"),
-            properties -> new WoodenBucketItem(Fluids.EMPTY, properties,
-                () -> (WoodenBucketItem) BuiltInRegistries.ITEM.getValue(waterKey),
-                supportsLava ? () -> (WoodenBucketItem) BuiltInRegistries.ITEM.getValue(lavaKey) : null),
-            woodenBucketProperties(supportsLava).stacksTo(16)
-        );
-        WoodenBucketItem water = register(
-            waterKey, properties -> new WoodenBucketItem(Fluids.WATER, properties, () -> empty),
-            woodenBucketProperties(supportsLava).stacksTo(1).craftRemainder(empty)
-        );
-        WoodenBucketItem lava = supportsLava ? register(
-            lavaKey, properties -> new WoodenBucketItem(Fluids.LAVA, properties, () -> empty),
-            woodenBucketProperties(true).stacksTo(1).craftRemainder(empty)
-        ) : null;
-        return new WoodenBucketVariant(name, logs, empty, water, lava);
-    }
-
-    public static final List<WoodenBucketVariant> WOODEN_BUCKETS = List.of(
-        registerWoodenBucket("oak", ItemTags.OAK_LOGS),
-        registerWoodenBucket("spruce", ItemTags.SPRUCE_LOGS),
-        registerWoodenBucket("birch", ItemTags.BIRCH_LOGS),
-        registerWoodenBucket("jungle", ItemTags.JUNGLE_LOGS),
-        registerWoodenBucket("acacia", ItemTags.ACACIA_LOGS),
-        registerWoodenBucket("dark_oak", ItemTags.DARK_OAK_LOGS),
-        registerWoodenBucket("mangrove", ItemTags.MANGROVE_LOGS),
-        registerWoodenBucket("cherry", ItemTags.CHERRY_LOGS),
-        registerWoodenBucket("pale_oak", ItemTags.PALE_OAK_LOGS),
-        registerWoodenBucket("poplar", ItemTags.POPLAR_LOGS),
-        registerWoodenBucket("crimson", ItemTags.CRIMSON_STEMS, true),
-        registerWoodenBucket("warped", ItemTags.WARPED_STEMS, true)
+    public static final List<WoodenBucketFamily> WOODEN_BUCKETS = List.of(
+        new WoodenBucketFamily("oak", ItemTags.OAK_LOGS),
+        new WoodenBucketFamily("spruce", ItemTags.SPRUCE_LOGS),
+        new WoodenBucketFamily("birch", ItemTags.BIRCH_LOGS),
+        new WoodenBucketFamily("jungle", ItemTags.JUNGLE_LOGS),
+        new WoodenBucketFamily("acacia", ItemTags.ACACIA_LOGS),
+        new WoodenBucketFamily("dark_oak", ItemTags.DARK_OAK_LOGS),
+        new WoodenBucketFamily("mangrove", ItemTags.MANGROVE_LOGS),
+        new WoodenBucketFamily("cherry", ItemTags.CHERRY_LOGS),
+        new WoodenBucketFamily("pale_oak", ItemTags.PALE_OAK_LOGS),
+        new WoodenBucketFamily("poplar", ItemTags.POPLAR_LOGS),
+        new WoodenBucketFamily("crimson", ItemTags.CRIMSON_STEMS, true),
+        new WoodenBucketFamily("warped", ItemTags.WARPED_STEMS, true)
     );
 
     public static final BlockItem REINFORCED_STONE = register(
@@ -150,6 +112,8 @@ public class ModItems {
     );
 
     public static void init() {
+        WoodenBucketCauldronInteractions.register(WOODEN_BUCKETS);
+        WoodenBucketFluidStorage.register(WOODEN_BUCKETS);
         var woodenBucketBehavior = new WoodenBucketDispenseBehavior();
         for (var variant : WOODEN_BUCKETS) {
             for (var bucket : variant.items()) {

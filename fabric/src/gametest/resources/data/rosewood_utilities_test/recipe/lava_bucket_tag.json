@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": ["#c:buckets/lava", "minecraft:dirt"],
+  "result": {"id": "minecraft:obsidian"}
+}

@@ -1,0 +1,28 @@
+{
+  "values": [
+    "rosewood_utilities:oak_bucket",
+    "rosewood_utilities:oak_water_bucket",
+    "rosewood_utilities:spruce_bucket",
+    "rosewood_utilities:spruce_water_bucket",
+    "rosewood_utilities:birch_bucket",
+    "rosewood_utilities:birch_water_bucket",
+    "rosewood_utilities:jungle_bucket",
+    "rosewood_utilities:jungle_water_bucket",
+    "rosewood_utilities:acacia_bucket",
+    "rosewood_utilities:acacia_water_bucket",
+    "rosewood_utilities:dark_oak_bucket",
+    "rosewood_utilities:dark_oak_water_bucket",
+    "rosewood_utilities:mangrove_bucket",
+    "rosewood_utilities:mangrove_water_bucket",
+    "rosewood_utilities:cherry_bucket",
+    "rosewood_utilities:cherry_water_bucket",
+    "rosewood_utilities:pale_oak_bucket",
+    "rosewood_utilities:pale_oak_water_bucket",
+    "rosewood_utilities:poplar_bucket",
+    "rosewood_utilities:poplar_water_bucket",
+    "rosewood_utilities:crimson_bucket",
+    "rosewood_utilities:crimson_water_bucket",
+    "rosewood_utilities:warped_bucket",
+    "rosewood_utilities:warped_water_bucket"
+  ]
+}

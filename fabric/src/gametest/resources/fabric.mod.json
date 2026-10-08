@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "rosewood_utilities_test",
+  "version": "1.0.0",
+  "name": "Rosewood Utilities GameTests",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["rosie.green.rosewood.gametest.WoodenBucketTests"],
+    "fabric-gametest": ["rosie.green.rosewood.gametest.WoodenBucketTests"]
+  }
+}

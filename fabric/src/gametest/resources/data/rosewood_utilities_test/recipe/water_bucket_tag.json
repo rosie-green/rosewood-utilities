@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": ["#c:buckets/water", "minecraft:dirt"],
+  "result": {"id": "minecraft:mud"}
+}

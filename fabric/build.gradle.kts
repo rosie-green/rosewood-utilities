@@ -64,7 +64,14 @@ fabricApi.configureDataGeneration {
     createSourceSet = true
 }
 
+fabricApi.configureTests {
+    modId = "${projectId}_test"
+    createSourceSet = true
+    enableClientGameTests = false
+}
+
 loom {
+    accessWidenerPath = file("src/main/resources/rosewood_utilities.classtweaker")
     mods {
         create(projectId) {
             sourceSet(sourceSets.main.get())
@@ -82,7 +89,8 @@ loom {
 
         named("client") { client() }
         named("server") { server() }
+        named("gameTest") {
+            systemProperties.put("fabric-api.gametest.report-file", layout.buildDirectory.file("reports/gametest.xml").get().asFile.absolutePath)
+        }
     }
 }
-
-

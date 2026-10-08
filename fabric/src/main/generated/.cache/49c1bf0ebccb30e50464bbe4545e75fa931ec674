@@ -1,8 +1,13 @@
 // 26.4-snapshot-1	-999999999-01-01T00:00:00	Rosewood Utilities/Tags for minecraft:item
+4e5217cbfbb180f8c66baa3ae45da2df2388b176 data/c/tags/item/buckets.json
+51a3c823e057531ed426e39926c61417b9428c80 data/c/tags/item/buckets/empty.json
+1ef4e17d9fe6908e824da6df0a0f6aa8551b159c data/c/tags/item/buckets/lava.json
+fb58e468c8d1afcd0ae4e00979a2f968d3f0d4f6 data/c/tags/item/buckets/water.json
 87148ad59a9c250cbae6a7d622030b8647bf5927 data/minecraft/tags/item/axes.json
 8fe01f9758730947125a2722ae98b9d774cb6028 data/minecraft/tags/item/enchantable/durability.json
 8fe01f9758730947125a2722ae98b9d774cb6028 data/minecraft/tags/item/enchantable/mining.json
 8fe01f9758730947125a2722ae98b9d774cb6028 data/minecraft/tags/item/enchantable/mining_loot.json
+4cdf989814e49fcb6415bcc09fe63915c8707c06 data/minecraft/tags/item/furnace_fuel_bottom_takeable.json
 f014173866cd62a8b2c5f7fcaf4dc97bd9a7549e data/minecraft/tags/item/hoes.json
 054376bcccb20a7217881c3fd26542983e0e43dc data/minecraft/tags/item/pickaxes.json
 907e1291bd22025b8c75e8d71ccece152b8880a0 data/minecraft/tags/item/shovels.json
