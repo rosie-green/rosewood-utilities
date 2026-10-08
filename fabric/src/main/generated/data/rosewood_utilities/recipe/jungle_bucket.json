@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "L": "#minecraft:jungle_logs"
+  },
+  "pattern": [
+    "L L",
+    " L "
+  ],
+  "result": {
+    "id": "rosewood_utilities:jungle_bucket"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "L": "#minecraft:spruce_logs"
+  },
+  "pattern": [
+    "L L",
+    " L "
+  ],
+  "result": {
+    "id": "rosewood_utilities:spruce_bucket"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "L": "#minecraft:warped_stems"
+  },
+  "pattern": [
+    "L L",
+    " L "
+  ],
+  "result": {
+    "id": "rosewood_utilities:warped_bucket"
+  }
+}

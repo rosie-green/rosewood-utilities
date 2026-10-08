@@ -136,5 +136,14 @@ public class RecipeGenerator extends RecipeProvider {
             .define('M', ModItems.REINFORCED_STONE)
             .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
             .save(output);
+
+        for (var variant : ModItems.WOODEN_BUCKETS) {
+            shaped(RecipeCategory.TOOLS, variant.empty())
+                .pattern("L L")
+                .pattern(" L ")
+                .define('L', variant.logs())
+                .unlockedBy("has_logs", has(variant.logs()))
+                .save(output);
+        }
     }
 }

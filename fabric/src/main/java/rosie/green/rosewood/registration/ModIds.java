@@ -39,7 +39,7 @@ public class ModIds {
         return BlockItemId.create(id(name), id(name));
     }
 
-    private static ResourceKey<Item> item(String name) {
+    public static ResourceKey<Item> item(String name) {
         return ResourceKey.create(Registries.ITEM, id(name));
     }
 

@@ -6,6 +6,7 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.world.item.Items;
 import rosie.green.rosewood.registration.ModBlocks;
 import rosie.green.rosewood.registration.ModItems;
 
@@ -30,6 +31,15 @@ public class ModelGenerator extends FabricModelProvider {
         generators.generateFlatItem(ModItems.NETHERITE_SCYTHE, ModelTemplates.FLAT_HANDHELD_ITEM);
 
         generators.generateFlatItem(ModItems.CRAFTING_PAD, ModelTemplates.FLAT_ITEM);
+
+        // Vanilla textures are placeholders until the wooden bucket art is ready.
+        for (var variant : ModItems.WOODEN_BUCKETS) {
+            generators.generateFlatItem(variant.empty(), Items.BUCKET, ModelTemplates.FLAT_ITEM);
+            generators.generateFlatItem(variant.water(), Items.WATER_BUCKET, ModelTemplates.FLAT_ITEM);
+            if (variant.lava() != null) {
+                generators.generateFlatItem(variant.lava(), Items.LAVA_BUCKET, ModelTemplates.FLAT_ITEM);
+            }
+        }
 
         generators.generateFlatItem(ModItems.REINFORCED_STONE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
         generators.generateFlatItem(ModItems.REINFORCED_STONE_SHOVEL, ModelTemplates.FLAT_HANDHELD_ITEM);
