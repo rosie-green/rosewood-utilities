@@ -4,12 +4,10 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.ItemTags;
-import org.jspecify.annotations.NullMarked;
 import rosie.green.rosewood.registration.ModIds;
 
 import java.util.concurrent.CompletableFuture;
 
-@NullMarked
 public class ItemTagGenerator extends FabricTagsProvider.ItemTagsProvider {
     public ItemTagGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registries, BlockTagGenerator blockTagGenerator) {
         super(output, registries, blockTagGenerator);

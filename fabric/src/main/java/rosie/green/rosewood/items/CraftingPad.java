@@ -9,9 +9,7 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.CraftingMenu;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.NullMarked;
 
-@NullMarked
 public class CraftingPad extends Item {
     public CraftingPad(Properties properties) {
         super(properties);

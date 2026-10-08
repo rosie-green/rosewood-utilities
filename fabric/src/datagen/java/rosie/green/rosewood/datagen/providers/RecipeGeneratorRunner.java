@@ -7,11 +7,9 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.item.crafting.Recipe;
-import org.jspecify.annotations.NullMarked;
 
 import java.util.concurrent.CompletableFuture;
 
-@NullMarked
 public class RecipeGeneratorRunner extends FabricRecipeProvider {
     public RecipeGeneratorRunner(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
