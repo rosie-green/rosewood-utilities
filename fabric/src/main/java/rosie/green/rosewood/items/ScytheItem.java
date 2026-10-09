@@ -19,7 +19,6 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.Nullable;
 
 import java.util.function.Consumer;
@@ -36,9 +35,8 @@ public class ScytheItem extends Item {
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         BlockState state = level.getBlockState(context.getClickedPos());
-        Block block = state.getBlock();
 
-        if (!(block instanceof CropBlock crop) || !crop.isMaxAge(state)) {
+        if (!(state.getBlock() instanceof CropBlock crop) || !crop.isMaxAge(state)) {
             return super.useOn(context);
         }
 
@@ -68,7 +66,7 @@ public class ScytheItem extends Item {
 
     private static void dropItems(ServerLevel level, BlockPos pos, Object2IntMap<Item> drops) {
         for (var entry : drops.object2IntEntrySet()) {
-            var template = new ItemStack(entry.getKey());
+            ItemStack template = new ItemStack(entry.getKey());
             int maxStackSize = template.getMaxStackSize();
             int count = entry.getIntValue();
 
@@ -116,7 +114,7 @@ public class ScytheItem extends Item {
         }
 
         state.spawnAfterBreak(level, pos, handStack, true, player);
-        level.gameEvent(GameEvent.BLOCK_CHANGE, Vec3.atCenterOf(pos), GameEvent.Context.of(player, replantedState));
+        level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, replantedState));
 
         return BlockPos.TraversalNodeStatus.ACCEPT;
     }
@@ -131,12 +129,13 @@ public class ScytheItem extends Item {
         int maxBlocks
     ) {
         var drops = new Object2IntOpenHashMap<Item>();
-        BlockState harvestState = crop.getStateForAge(crop.getMaxAge());
+        BlockState matureState = crop.getStateForAge(crop.getMaxAge());
+        BlockState replantedState = crop.getStateForAge(0);
 
         int blocksHarvested = BlockPos.breadthFirstTraversal(
             pos, Integer.MAX_VALUE, maxBlocks,
-            (currentPos, consumer) -> ScytheItem.findNeighbouringCrops(level, harvestState, currentPos, consumer),
-            (currentPos) -> ScytheItem.harvestCrop(level, crop.getStateForAge(0), player, handStack, drops, currentPos)
+            (currentPos, consumer) -> ScytheItem.findNeighbouringCrops(level, matureState, currentPos, consumer),
+            (currentPos) -> ScytheItem.harvestCrop(level, replantedState, player, handStack, drops, currentPos)
         );
 
         if (player != null) {
