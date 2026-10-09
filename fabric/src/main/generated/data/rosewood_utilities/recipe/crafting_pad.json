@@ -6,9 +6,8 @@
     "S": "minecraft:stick"
   },
   "pattern": [
-    "  C",
-    " S ",
-    "S  "
+    " C",
+    "S "
   ],
   "result": {
     "id": "rosewood_utilities:crafting_pad"

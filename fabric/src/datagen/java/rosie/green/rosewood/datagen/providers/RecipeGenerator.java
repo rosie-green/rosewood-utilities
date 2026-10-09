@@ -60,9 +60,8 @@ public class RecipeGenerator extends RecipeProvider {
         netheriteSmithing(ModItems.DIAMOND_SCYTHE, RecipeCategory.TOOLS, ModItems.NETHERITE_SCYTHE);
 
         shaped(RecipeCategory.TOOLS, ModItems.CRAFTING_PAD)
-            .pattern("  C")
-            .pattern(" S ")
-            .pattern("S  ")
+            .pattern(" C")
+            .pattern("S ")
             .define('S', Items.STICK)
             .define('C', Items.CRAFTING_TABLE)
             .unlockedBy(getHasName(Items.CRAFTING_TABLE), has(Items.CRAFTING_TABLE))
