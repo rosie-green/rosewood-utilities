@@ -17,9 +17,11 @@ public class CraftingPad extends Item {
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        if (!level.isClientSide()) {
-            player.openMenu(new SimpleMenuProvider(((id, inv, ply) -> createMenu(id, inv, ply, hand)), this.getName(player.getItemInHand(hand))));
+        if (level.isClientSide()) {
+            return InteractionResult.SUCCESS;
         }
+
+        player.openMenu(new SimpleMenuProvider(((id, inv, ply) -> createMenu(id, inv, ply, hand)), this.getName(player.getItemInHand(hand))));
 
         return InteractionResult.SUCCESS_SERVER;
     }
