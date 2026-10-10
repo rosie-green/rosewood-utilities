@@ -1,8 +1,8 @@
 package rosie.green.rosewood;
 
 import net.fabricmc.api.ModInitializer;
-import rosie.green.rosewood.registration.ModBlocks;
-import rosie.green.rosewood.registration.ModItems;
+import rosie.green.rosewood.content.ModBlocks;
+import rosie.green.rosewood.content.ModItems;
 
 public class Rosewood implements ModInitializer {
     @Override

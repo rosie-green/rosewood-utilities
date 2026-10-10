@@ -1,10 +1,9 @@
-package rosie.green.rosewood.registration;
+package rosie.green.rosewood.content;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import rosie.green.rosewood.Rosewood;
 
@@ -33,7 +32,18 @@ public class ModIds {
     public static final ResourceKey<Item> REINFORCED_STONE_SPEAR = item("reinforced_stone_spear");
     public static final ResourceKey<Item> REINFORCED_STONE_SCYTHE = item("reinforced_stone_scythe");
 
-    public static final TagKey<Item> SCYTHES = TagKey.create(Registries.ITEM, id("scythes"));
+    public static final WoodenBucketFamily<ResourceKey<Item>> OAK_BUCKET = WoodenBucketFamily.create(item("oak_bucket"), false);
+    public static final WoodenBucketFamily<ResourceKey<Item>> SPRUCE_BUCKET = WoodenBucketFamily.create(item("spruce_bucket"), false);
+    public static final WoodenBucketFamily<ResourceKey<Item>> BIRCH_BUCKET = WoodenBucketFamily.create(item("birch_bucket"), false);
+    public static final WoodenBucketFamily<ResourceKey<Item>> JUNGLE_BUCKET = WoodenBucketFamily.create(item("jungle_bucket"), false);
+    public static final WoodenBucketFamily<ResourceKey<Item>> ACACIA_BUCKET = WoodenBucketFamily.create(item("acacia_bucket"), false);
+    public static final WoodenBucketFamily<ResourceKey<Item>> DARK_OAK_BUCKET = WoodenBucketFamily.create(item("dark_oak_bucket"), false);
+    public static final WoodenBucketFamily<ResourceKey<Item>> MANGROVE_BUCKET = WoodenBucketFamily.create(item("mangrove_bucket"), false);
+    public static final WoodenBucketFamily<ResourceKey<Item>> CHERRY_BUCKET = WoodenBucketFamily.create(item("cherry_bucket"), false);
+    public static final WoodenBucketFamily<ResourceKey<Item>> PALE_OAK_BUCKET = WoodenBucketFamily.create(item("pale_oak_bucket"), false);
+    public static final WoodenBucketFamily<ResourceKey<Item>> POPLAR_BUCKET = WoodenBucketFamily.create(item("poplar_bucket"), false);
+    public static final WoodenBucketFamily<ResourceKey<Item>> CRIMSON_BUCKET = WoodenBucketFamily.create(item("crimson_bucket"), true);
+    public static final WoodenBucketFamily<ResourceKey<Item>> WARPED_BUCKET = WoodenBucketFamily.create(item("warped_bucket"), true);
 
     private static BlockItemId block(String name) {
         return BlockItemId.create(id(name), id(name));
@@ -43,7 +53,7 @@ public class ModIds {
         return ResourceKey.create(Registries.ITEM, id(name));
     }
 
-    private static Identifier id(String name) {
+    public static Identifier id(String name) {
         return Identifier.fromNamespaceAndPath(Rosewood.MOD_ID, name);
     }
 }

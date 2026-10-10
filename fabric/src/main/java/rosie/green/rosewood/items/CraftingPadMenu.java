@@ -5,7 +5,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.CraftingMenu;
-import rosie.green.rosewood.registration.ModItems;
+import rosie.green.rosewood.content.ModItems;
 
 public class CraftingPadMenu extends CraftingMenu {
     private final InteractionHand hand;

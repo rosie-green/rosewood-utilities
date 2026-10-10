@@ -7,10 +7,14 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
-import rosie.green.rosewood.registration.ModItems;
+import rosie.green.rosewood.content.ModItems;
+import rosie.green.rosewood.content.WoodenBucketFamily;
+import rosie.green.rosewood.datagen.content.ModTags;
 
 public class RecipeGenerator extends RecipeProvider {
     protected RecipeGenerator(BootstrapContext<Recipe<?>> recipes, BootstrapContext<Advancement> advancements) {
@@ -23,6 +27,15 @@ public class RecipeGenerator extends RecipeProvider {
             .pattern(" S ")
             .pattern("S  ")
             .define('S', Items.STICK);
+    }
+
+    private void woodenBucket(WoodenBucketFamily<Item> buckets, TagKey<Item> bark) {
+        shaped(RecipeCategory.TOOLS, buckets.empty())
+            .pattern("M M")
+            .pattern(" M ")
+            .define('M', bark)
+            .unlockedBy("has_bark", has(bark))
+            .save(output);
     }
 
     @Override
@@ -135,5 +148,18 @@ public class RecipeGenerator extends RecipeProvider {
             .define('M', ModItems.REINFORCED_STONE)
             .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
             .save(output);
+
+        woodenBucket(ModItems.OAK_BUCKET, ModTags.OAK_BARK);
+        woodenBucket(ModItems.SPRUCE_BUCKET, ModTags.SPRUCE_BARK);
+        woodenBucket(ModItems.BIRCH_BUCKET, ModTags.BIRCH_BARK);
+        woodenBucket(ModItems.JUNGLE_BUCKET, ModTags.JUNGLE_BARK);
+        woodenBucket(ModItems.ACACIA_BUCKET, ModTags.ACACIA_BARK);
+        woodenBucket(ModItems.DARK_OAK_BUCKET, ModTags.DARK_OAK_BARK);
+        woodenBucket(ModItems.MANGROVE_BUCKET, ModTags.MANGROVE_BARK);
+        woodenBucket(ModItems.CHERRY_BUCKET, ModTags.CHERRY_BARK);
+        woodenBucket(ModItems.PALE_OAK_BUCKET, ModTags.PALE_OAK_BARK);
+        woodenBucket(ModItems.POPLAR_BUCKET, ModTags.POPLAR_BARK);
+        woodenBucket(ModItems.CRIMSON_BUCKET, ModTags.CRIMSON_BARK);
+        woodenBucket(ModItems.WARPED_BUCKET, ModTags.WARPED_BARK);
     }
 }

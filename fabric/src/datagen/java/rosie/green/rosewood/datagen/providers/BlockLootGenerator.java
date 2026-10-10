@@ -3,7 +3,7 @@ package rosie.green.rosewood.datagen.providers;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
 import net.minecraft.core.HolderLookup;
-import rosie.green.rosewood.registration.ModBlocks;
+import rosie.green.rosewood.content.ModBlocks;
 
 import java.util.concurrent.CompletableFuture;
 

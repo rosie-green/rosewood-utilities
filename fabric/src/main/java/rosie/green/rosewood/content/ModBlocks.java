@@ -1,4 +1,4 @@
-package rosie.green.rosewood.registration;
+package rosie.green.rosewood.content;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

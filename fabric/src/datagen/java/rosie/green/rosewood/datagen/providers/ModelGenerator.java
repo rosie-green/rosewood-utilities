@@ -6,8 +6,8 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TexturedModel;
-import rosie.green.rosewood.registration.ModBlocks;
-import rosie.green.rosewood.registration.ModItems;
+import rosie.green.rosewood.content.ModBlocks;
+import rosie.green.rosewood.content.ModItems;
 
 public class ModelGenerator extends FabricModelProvider {
     public ModelGenerator(FabricPackOutput output) {

@@ -1,10 +1,12 @@
-package rosie.green.rosewood.registration;
+package rosie.green.rosewood.content;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTabOutput;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.ItemLike;
 import rosie.green.rosewood.items.CraftingPad;
 import rosie.green.rosewood.items.ScytheItem;
 
@@ -89,6 +91,33 @@ public class ModItems {
         8
     );
 
+    private static WoodenBucketFamily<Item> registerBucket(WoodenBucketFamily<ResourceKey<Item>> buckets) {
+        return new WoodenBucketFamily<>(null, null, null);
+    }
+
+    public static final WoodenBucketFamily<Item> OAK_BUCKET = registerBucket(ModIds.OAK_BUCKET);
+    public static final WoodenBucketFamily<Item> SPRUCE_BUCKET = registerBucket(ModIds.SPRUCE_BUCKET);
+    public static final WoodenBucketFamily<Item> BIRCH_BUCKET = registerBucket(ModIds.BIRCH_BUCKET);
+    public static final WoodenBucketFamily<Item> JUNGLE_BUCKET = registerBucket(ModIds.JUNGLE_BUCKET);
+    public static final WoodenBucketFamily<Item> ACACIA_BUCKET = registerBucket(ModIds.ACACIA_BUCKET);
+    public static final WoodenBucketFamily<Item> DARK_OAK_BUCKET = registerBucket(ModIds.DARK_OAK_BUCKET);
+    public static final WoodenBucketFamily<Item> MANGROVE_BUCKET = registerBucket(ModIds.MANGROVE_BUCKET);
+    public static final WoodenBucketFamily<Item> CHERRY_BUCKET = registerBucket(ModIds.CHERRY_BUCKET);
+    public static final WoodenBucketFamily<Item> PALE_OAK_BUCKET = registerBucket(ModIds.PALE_OAK_BUCKET);
+    public static final WoodenBucketFamily<Item> POPLAR_BUCKET = registerBucket(ModIds.POPLAR_BUCKET);
+    public static final WoodenBucketFamily<Item> CRIMSON_BUCKET = registerBucket(ModIds.CRIMSON_BUCKET);
+    public static final WoodenBucketFamily<Item> WARPED_BUCKET = registerBucket(ModIds.WARPED_BUCKET);
+
+    private static void insertBucketsAfter(FabricCreativeModeTabOutput entries, ItemLike item, WoodenBucketFamily<Item> buckets) {
+        var lavaBucket = buckets.lava();
+
+        if (lavaBucket != null) {
+            entries.insertAfter(item, buckets.empty(), buckets.water(), lavaBucket);
+        } else {
+            entries.insertAfter(item, buckets.empty(), buckets.water());
+        }
+    }
+
     public static void init() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
             entries.insertAfter(Items.MOSSY_STONE_BRICK_WALL, REINFORCED_STONE);
@@ -106,6 +135,19 @@ public class ModItems {
             entries.accept(CRAFTING_PAD);
 
             entries.insertAfter(STONE_SCYTHE, REINFORCED_STONE_SHOVEL, REINFORCED_STONE_PICKAXE, REINFORCED_STONE_AXE, REINFORCED_STONE_HOE, REINFORCED_STONE_SCYTHE);
+
+            // todo: create one big list?
+            insertBucketsAfter(entries, Items.MILK_BUCKET, OAK_BUCKET);
+            insertBucketsAfter(entries, OAK_BUCKET.last(), BIRCH_BUCKET);
+            insertBucketsAfter(entries, BIRCH_BUCKET.last(), JUNGLE_BUCKET);
+            insertBucketsAfter(entries, JUNGLE_BUCKET.last(), ACACIA_BUCKET);
+            insertBucketsAfter(entries, ACACIA_BUCKET.last(), CHERRY_BUCKET);
+            insertBucketsAfter(entries, CHERRY_BUCKET.last(), DARK_OAK_BUCKET);
+            insertBucketsAfter(entries, DARK_OAK_BUCKET.last(), PALE_OAK_BUCKET);
+            insertBucketsAfter(entries, PALE_OAK_BUCKET.last(), MANGROVE_BUCKET);
+            insertBucketsAfter(entries, MANGROVE_BUCKET.last(), POPLAR_BUCKET);
+            insertBucketsAfter(entries, POPLAR_BUCKET.last(), CRIMSON_BUCKET);
+            insertBucketsAfter(entries, CRIMSON_BUCKET.last(), WARPED_BUCKET);
         });
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(entries -> {
