@@ -16,8 +16,8 @@ import rosie.green.rosewood.content.ModItems;
 import rosie.green.rosewood.content.WoodenBucketFamily;
 import rosie.green.rosewood.datagen.content.ModTags;
 
-public class RecipeGenerator extends RecipeProvider {
-    protected RecipeGenerator(BootstrapContext<Recipe<?>> recipes, BootstrapContext<Advancement> advancements) {
+public final class RecipeGenerator extends RecipeProvider {
+    RecipeGenerator(BootstrapContext<Recipe<?>> recipes, BootstrapContext<Advancement> advancements) {
         super(recipes, advancements);
     }
 

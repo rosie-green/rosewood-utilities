@@ -8,7 +8,7 @@ import rosie.green.rosewood.content.ModIds;
 
 import java.util.concurrent.CompletableFuture;
 
-public class BlockTagGenerator extends FabricTagsProvider.BlockTagsProvider {
+public final class BlockTagGenerator extends FabricTagsProvider.BlockTagsProvider {
     public BlockTagGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
     }

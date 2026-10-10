@@ -7,7 +7,7 @@ import rosie.green.rosewood.Rosewood;
 import rosie.green.rosewood.datagen.providers.*;
 
 @NullMarked
-public class RosewoodDatagen implements DataGeneratorEntrypoint {
+public final class RosewoodDatagen implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator generator) {
         FabricDataGenerator.Pack pack = generator.createPack();

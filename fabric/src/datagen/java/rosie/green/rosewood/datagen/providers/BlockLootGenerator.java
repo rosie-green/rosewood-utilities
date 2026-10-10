@@ -7,7 +7,7 @@ import rosie.green.rosewood.content.ModBlocks;
 
 import java.util.concurrent.CompletableFuture;
 
-public class BlockLootGenerator extends FabricBlockLootSubProvider {
+public final class BlockLootGenerator extends FabricBlockLootSubProvider {
     public BlockLootGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
     }

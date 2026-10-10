@@ -12,9 +12,9 @@ import net.minecraft.world.level.material.MapColor;
 
 import java.util.function.Function;
 
-public class ModBlocks {
+public final class ModBlocks {
     private ModBlocks() {
-        throw new IllegalStateException("Cannot instantiate an utility class.");
+        throw new IllegalStateException("Cannot instantiate a utility class.");
     }
 
     private static <T extends Block> T register(

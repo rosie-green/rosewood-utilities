@@ -3,11 +3,13 @@ package rosie.green.rosewood.datagen.content;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import org.jspecify.annotations.NullMarked;
 import rosie.green.rosewood.content.ModIds;
 
-public class ModTags {
+@NullMarked
+public final class ModTags {
     private ModTags() {
-        throw new IllegalStateException("Cannot instantiate an utility class.");
+        throw new IllegalStateException("Cannot instantiate a utility class.");
     }
 
     private static TagKey<Item> item(String name) {

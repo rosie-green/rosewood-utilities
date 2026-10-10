@@ -10,7 +10,7 @@ import net.minecraft.world.item.crafting.Recipe;
 
 import java.util.concurrent.CompletableFuture;
 
-public class RecipeGeneratorRunner extends FabricRecipeProvider {
+public final class RecipeGeneratorRunner extends FabricRecipeProvider {
     public RecipeGeneratorRunner(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
     }

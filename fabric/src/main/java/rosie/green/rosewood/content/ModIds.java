@@ -7,9 +7,9 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import rosie.green.rosewood.Rosewood;
 
-public class ModIds {
+public final class ModIds {
     private ModIds() {
-        throw new IllegalStateException("Cannot instantiate an utility class.");
+        throw new IllegalStateException("Cannot instantiate a utility class.");
     }
 
     public static final BlockItemId REINFORCED_STONE = block("reinforced_stone");

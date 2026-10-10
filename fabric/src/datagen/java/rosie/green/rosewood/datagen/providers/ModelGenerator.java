@@ -9,7 +9,7 @@ import net.minecraft.client.data.models.model.TexturedModel;
 import rosie.green.rosewood.content.ModBlocks;
 import rosie.green.rosewood.content.ModItems;
 
-public class ModelGenerator extends FabricModelProvider {
+public final class ModelGenerator extends FabricModelProvider {
     public ModelGenerator(FabricPackOutput output) {
         super(output);
     }

@@ -10,7 +10,7 @@ import rosie.green.rosewood.datagen.content.ModTags;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ItemTagGenerator extends FabricTagsProvider.ItemTagsProvider {
+public final class ItemTagGenerator extends FabricTagsProvider.ItemTagsProvider {
     public ItemTagGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registries, BlockTagGenerator blockTagGenerator) {
         super(output, registries, blockTagGenerator);
     }

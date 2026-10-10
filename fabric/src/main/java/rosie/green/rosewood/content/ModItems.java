@@ -12,9 +12,9 @@ import rosie.green.rosewood.items.ScytheItem;
 
 import java.util.function.Function;
 
-public class ModItems {
+public final class ModItems {
     private ModItems() {
-        throw new IllegalStateException("Cannot instantiate an utility class.");
+        throw new IllegalStateException("Cannot instantiate a utility class.");
     }
 
     private static ScytheItem registerScythe(ResourceKey<Item> key, Item.Properties properties, int range) {
@@ -136,16 +136,17 @@ public class ModItems {
 
             entries.insertAfter(STONE_SCYTHE, REINFORCED_STONE_SHOVEL, REINFORCED_STONE_PICKAXE, REINFORCED_STONE_AXE, REINFORCED_STONE_HOE, REINFORCED_STONE_SCYTHE);
 
-            // todo: create one big list?
+            // todo: create one big list? copy vanilla wood building blocks creative tab order?
             insertBucketsAfter(entries, Items.MILK_BUCKET, OAK_BUCKET);
-            insertBucketsAfter(entries, OAK_BUCKET.last(), BIRCH_BUCKET);
+            insertBucketsAfter(entries, OAK_BUCKET.last(), SPRUCE_BUCKET);
+            insertBucketsAfter(entries, SPRUCE_BUCKET.last(), BIRCH_BUCKET);
             insertBucketsAfter(entries, BIRCH_BUCKET.last(), JUNGLE_BUCKET);
             insertBucketsAfter(entries, JUNGLE_BUCKET.last(), ACACIA_BUCKET);
-            insertBucketsAfter(entries, ACACIA_BUCKET.last(), CHERRY_BUCKET);
-            insertBucketsAfter(entries, CHERRY_BUCKET.last(), DARK_OAK_BUCKET);
-            insertBucketsAfter(entries, DARK_OAK_BUCKET.last(), PALE_OAK_BUCKET);
-            insertBucketsAfter(entries, PALE_OAK_BUCKET.last(), MANGROVE_BUCKET);
-            insertBucketsAfter(entries, MANGROVE_BUCKET.last(), POPLAR_BUCKET);
+            insertBucketsAfter(entries, ACACIA_BUCKET.last(), DARK_OAK_BUCKET);
+            insertBucketsAfter(entries, DARK_OAK_BUCKET.last(), MANGROVE_BUCKET);
+            insertBucketsAfter(entries, MANGROVE_BUCKET.last(), CHERRY_BUCKET);
+            insertBucketsAfter(entries, CHERRY_BUCKET.last(), PALE_OAK_BUCKET);
+            insertBucketsAfter(entries, PALE_OAK_BUCKET.last(), POPLAR_BUCKET);
             insertBucketsAfter(entries, POPLAR_BUCKET.last(), CRIMSON_BUCKET);
             insertBucketsAfter(entries, CRIMSON_BUCKET.last(), WARPED_BUCKET);
         });
