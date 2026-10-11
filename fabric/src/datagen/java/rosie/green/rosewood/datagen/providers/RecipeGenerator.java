@@ -26,7 +26,7 @@ public final class RecipeGenerator extends RecipeProvider {
             .pattern("MMM")
             .pattern(" S ")
             .pattern("S  ")
-            .define('S', Items.STICK);
+            .define('S', ConventionalItemTags.WOODEN_RODS);
     }
 
     private void woodenBucket(WoodenBucketFamily<Item> buckets, TagKey<Item> bark) {
@@ -75,7 +75,7 @@ public final class RecipeGenerator extends RecipeProvider {
         shaped(RecipeCategory.TOOLS, ModItems.CRAFTING_PAD)
             .pattern(" C")
             .pattern("S ")
-            .define('S', Items.STICK)
+            .define('S', ConventionalItemTags.WOODEN_RODS)
             .define('C', Items.CRAFTING_TABLE)
             .unlockedBy(getHasName(Items.CRAFTING_TABLE), has(Items.CRAFTING_TABLE))
             .save(output);
@@ -95,7 +95,7 @@ public final class RecipeGenerator extends RecipeProvider {
             .pattern("M")
             .pattern("S")
             .define('M', ModItems.REINFORCED_STONE)
-            .define('S', Items.STICK)
+            .define('S', ConventionalItemTags.WOODEN_RODS)
             .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
             .save(output);
 
@@ -104,7 +104,7 @@ public final class RecipeGenerator extends RecipeProvider {
             .pattern("S")
             .pattern("S")
             .define('M', ModItems.REINFORCED_STONE)
-            .define('S', Items.STICK)
+            .define('S', ConventionalItemTags.WOODEN_RODS)
             .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
             .save(output);
 
@@ -113,7 +113,7 @@ public final class RecipeGenerator extends RecipeProvider {
             .pattern(" S ")
             .pattern(" S ")
             .define('M', ModItems.REINFORCED_STONE)
-            .define('S', Items.STICK)
+            .define('S', ConventionalItemTags.WOODEN_RODS)
             .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
             .save(output);
 
@@ -122,7 +122,7 @@ public final class RecipeGenerator extends RecipeProvider {
             .pattern("MS")
             .pattern(" S")
             .define('M', ModItems.REINFORCED_STONE)
-            .define('S', Items.STICK)
+            .define('S', ConventionalItemTags.WOODEN_RODS)
             .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
             .save(output);
 
@@ -131,7 +131,7 @@ public final class RecipeGenerator extends RecipeProvider {
             .pattern(" S")
             .pattern(" S")
             .define('M', ModItems.REINFORCED_STONE)
-            .define('S', Items.STICK)
+            .define('S', ConventionalItemTags.WOODEN_RODS)
             .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
             .save(output);
 
@@ -140,7 +140,7 @@ public final class RecipeGenerator extends RecipeProvider {
             .pattern(" S ")
             .pattern("S  ")
             .define('M', ModItems.REINFORCED_STONE)
-            .define('S', Items.STICK)
+            .define('S', ConventionalItemTags.WOODEN_RODS)
             .unlockedBy(getHasName(ModItems.REINFORCED_STONE), has(ModItems.REINFORCED_STONE))
             .save(output);
 
