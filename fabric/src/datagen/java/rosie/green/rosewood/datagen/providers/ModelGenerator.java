@@ -6,8 +6,10 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.world.item.Item;
 import rosie.green.rosewood.content.ModBlocks;
 import rosie.green.rosewood.content.ModItems;
+import rosie.green.rosewood.content.WoodenBucketFamily;
 
 public final class ModelGenerator extends FabricModelProvider {
     public ModelGenerator(FabricPackOutput output) {
@@ -17,6 +19,17 @@ public final class ModelGenerator extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockModelGenerators generators) {
         generators.createAxisAlignedPillarBlock(ModBlocks.REINFORCED_STONE, TexturedModel.CUBE_TOP);
+    }
+
+    private void generateBucketModels(WoodenBucketFamily<Item> buckets, ItemModelGenerators generators) {
+        generators.generateFlatItem(buckets.empty(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        generators.generateFlatItem(buckets.water(), ModelTemplates.FLAT_HANDHELD_ITEM);
+
+        var lavaBucket = buckets.lava();
+
+        if (lavaBucket != null) {
+            generators.generateFlatItem(lavaBucket, ModelTemplates.FLAT_HANDHELD_ITEM);
+        }
     }
 
     @Override
@@ -38,5 +51,20 @@ public final class ModelGenerator extends FabricModelProvider {
         generators.generateFlatItem(ModItems.REINFORCED_STONE_HOE, ModelTemplates.FLAT_HANDHELD_ITEM);
         generators.generateSpear(ModItems.REINFORCED_STONE_SPEAR);
         generators.generateFlatItem(ModItems.REINFORCED_STONE_SCYTHE, ModelTemplates.FLAT_HANDHELD_ITEM);
+
+        generateBucketModels(ModItems.OAK_BUCKET, generators);
+        generateBucketModels(ModItems.SPRUCE_BUCKET, generators);
+        generateBucketModels(ModItems.BIRCH_BUCKET, generators);
+        generateBucketModels(ModItems.JUNGLE_BUCKET, generators);
+        generateBucketModels(ModItems.ACACIA_BUCKET, generators);
+        generateBucketModels(ModItems.DARK_OAK_BUCKET, generators);
+        generateBucketModels(ModItems.MANGROVE_BUCKET, generators);
+        generateBucketModels(ModItems.CHERRY_BUCKET, generators);
+        generateBucketModels(ModItems.PALE_OAK_BUCKET, generators);
+        generateBucketModels(ModItems.POPLAR_BUCKET, generators);
+        generateBucketModels(ModItems.CRIMSON_BUCKET, generators);
+        generateBucketModels(ModItems.WARPED_BUCKET, generators);
     }
+
+
 }

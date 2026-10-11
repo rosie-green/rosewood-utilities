@@ -7,10 +7,13 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.material.Fluids;
 import rosie.green.rosewood.items.CraftingPad;
 import rosie.green.rosewood.items.ScytheItem;
+import rosie.green.rosewood.items.WoodenBucketItem;
 
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 public final class ModItems {
     private ModItems() {
@@ -91,22 +94,27 @@ public final class ModItems {
         8
     );
 
-    private static WoodenBucketFamily<Item> registerBucket(WoodenBucketFamily<ResourceKey<Item>> buckets) {
-        return new WoodenBucketFamily<>(null, null, null);
+    private static WoodenBucketFamily<Item> registerBucket(WoodenBucketFamily<ResourceKey<Item>> bucketIds, Supplier<WoodenBucketFamily<Item>> buckets) {
+        var empty = register(bucketIds.empty(), properties -> new WoodenBucketItem(properties, Fluids.EMPTY, buckets), new Item.Properties().stacksTo(16));
+        var water = register(bucketIds.water(), properties -> new WoodenBucketItem(properties, Fluids.WATER, buckets), new Item.Properties().craftRemainder(empty).stacksTo(1));
+        var lavaBucketId = bucketIds.lava();
+        var lava = lavaBucketId != null ? register(lavaBucketId, properties -> new WoodenBucketItem(properties, Fluids.LAVA, buckets), new Item.Properties().craftRemainder(empty).stacksTo(1)) : null;
+
+        return new WoodenBucketFamily<>(empty, water, lava);
     }
 
-    public static final WoodenBucketFamily<Item> OAK_BUCKET = registerBucket(ModIds.OAK_BUCKET);
-    public static final WoodenBucketFamily<Item> SPRUCE_BUCKET = registerBucket(ModIds.SPRUCE_BUCKET);
-    public static final WoodenBucketFamily<Item> BIRCH_BUCKET = registerBucket(ModIds.BIRCH_BUCKET);
-    public static final WoodenBucketFamily<Item> JUNGLE_BUCKET = registerBucket(ModIds.JUNGLE_BUCKET);
-    public static final WoodenBucketFamily<Item> ACACIA_BUCKET = registerBucket(ModIds.ACACIA_BUCKET);
-    public static final WoodenBucketFamily<Item> DARK_OAK_BUCKET = registerBucket(ModIds.DARK_OAK_BUCKET);
-    public static final WoodenBucketFamily<Item> MANGROVE_BUCKET = registerBucket(ModIds.MANGROVE_BUCKET);
-    public static final WoodenBucketFamily<Item> CHERRY_BUCKET = registerBucket(ModIds.CHERRY_BUCKET);
-    public static final WoodenBucketFamily<Item> PALE_OAK_BUCKET = registerBucket(ModIds.PALE_OAK_BUCKET);
-    public static final WoodenBucketFamily<Item> POPLAR_BUCKET = registerBucket(ModIds.POPLAR_BUCKET);
-    public static final WoodenBucketFamily<Item> CRIMSON_BUCKET = registerBucket(ModIds.CRIMSON_BUCKET);
-    public static final WoodenBucketFamily<Item> WARPED_BUCKET = registerBucket(ModIds.WARPED_BUCKET);
+    public static final WoodenBucketFamily<Item> OAK_BUCKET = registerBucket(ModIds.OAK_BUCKET, () -> ModItems.OAK_BUCKET);
+    public static final WoodenBucketFamily<Item> SPRUCE_BUCKET = registerBucket(ModIds.SPRUCE_BUCKET, () -> ModItems.SPRUCE_BUCKET);
+    public static final WoodenBucketFamily<Item> BIRCH_BUCKET = registerBucket(ModIds.BIRCH_BUCKET, () -> ModItems.BIRCH_BUCKET);
+    public static final WoodenBucketFamily<Item> JUNGLE_BUCKET = registerBucket(ModIds.JUNGLE_BUCKET, () -> ModItems.JUNGLE_BUCKET);
+    public static final WoodenBucketFamily<Item> ACACIA_BUCKET = registerBucket(ModIds.ACACIA_BUCKET, () -> ModItems.ACACIA_BUCKET);
+    public static final WoodenBucketFamily<Item> DARK_OAK_BUCKET = registerBucket(ModIds.DARK_OAK_BUCKET, () -> ModItems.DARK_OAK_BUCKET);
+    public static final WoodenBucketFamily<Item> MANGROVE_BUCKET = registerBucket(ModIds.MANGROVE_BUCKET, () -> ModItems.MANGROVE_BUCKET);
+    public static final WoodenBucketFamily<Item> CHERRY_BUCKET = registerBucket(ModIds.CHERRY_BUCKET, () -> ModItems.CHERRY_BUCKET);
+    public static final WoodenBucketFamily<Item> PALE_OAK_BUCKET = registerBucket(ModIds.PALE_OAK_BUCKET, () -> ModItems.PALE_OAK_BUCKET);
+    public static final WoodenBucketFamily<Item> POPLAR_BUCKET = registerBucket(ModIds.POPLAR_BUCKET, () -> ModItems.POPLAR_BUCKET);
+    public static final WoodenBucketFamily<Item> CRIMSON_BUCKET = registerBucket(ModIds.CRIMSON_BUCKET, () -> ModItems.CRIMSON_BUCKET);
+    public static final WoodenBucketFamily<Item> WARPED_BUCKET = registerBucket(ModIds.WARPED_BUCKET, () -> ModItems.WARPED_BUCKET);
 
     private static void insertBucketsAfter(FabricCreativeModeTabOutput entries, ItemLike item, WoodenBucketFamily<Item> buckets) {
         var lavaBucket = buckets.lava();
