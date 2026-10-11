@@ -1,19 +1,19 @@
 package rosie.green.rosewood.content;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
-import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTabOutput;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluids;
 import rosie.green.rosewood.items.CraftingPad;
 import rosie.green.rosewood.items.ScytheItem;
 import rosie.green.rosewood.items.WoodenBucketItem;
 
+import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public final class ModItems {
     private ModItems() {
@@ -116,16 +116,6 @@ public final class ModItems {
     public static final WoodenBucketFamily<Item> CRIMSON_BUCKET = registerBucket(ModIds.CRIMSON_BUCKET, () -> ModItems.CRIMSON_BUCKET);
     public static final WoodenBucketFamily<Item> WARPED_BUCKET = registerBucket(ModIds.WARPED_BUCKET, () -> ModItems.WARPED_BUCKET);
 
-    private static void insertBucketsAfter(FabricCreativeModeTabOutput entries, ItemLike item, WoodenBucketFamily<Item> buckets) {
-        var lavaBucket = buckets.lava();
-
-        if (lavaBucket != null) {
-            entries.insertAfter(item, buckets.empty(), buckets.water(), lavaBucket);
-        } else {
-            entries.insertAfter(item, buckets.empty(), buckets.water());
-        }
-    }
-
     public static void init() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
             entries.insertAfter(Items.MOSSY_STONE_BRICK_WALL, REINFORCED_STONE);
@@ -144,19 +134,18 @@ public final class ModItems {
 
             entries.insertAfter(STONE_SCYTHE, REINFORCED_STONE_SHOVEL, REINFORCED_STONE_PICKAXE, REINFORCED_STONE_AXE, REINFORCED_STONE_HOE, REINFORCED_STONE_SCYTHE);
 
-            // todo: create one big list? copy vanilla wood building blocks creative tab order?
-            insertBucketsAfter(entries, Items.MILK_BUCKET, OAK_BUCKET);
-            insertBucketsAfter(entries, OAK_BUCKET.last(), SPRUCE_BUCKET);
-            insertBucketsAfter(entries, SPRUCE_BUCKET.last(), BIRCH_BUCKET);
-            insertBucketsAfter(entries, BIRCH_BUCKET.last(), JUNGLE_BUCKET);
-            insertBucketsAfter(entries, JUNGLE_BUCKET.last(), ACACIA_BUCKET);
-            insertBucketsAfter(entries, ACACIA_BUCKET.last(), DARK_OAK_BUCKET);
-            insertBucketsAfter(entries, DARK_OAK_BUCKET.last(), MANGROVE_BUCKET);
-            insertBucketsAfter(entries, MANGROVE_BUCKET.last(), CHERRY_BUCKET);
-            insertBucketsAfter(entries, CHERRY_BUCKET.last(), PALE_OAK_BUCKET);
-            insertBucketsAfter(entries, PALE_OAK_BUCKET.last(), POPLAR_BUCKET);
-            insertBucketsAfter(entries, POPLAR_BUCKET.last(), CRIMSON_BUCKET);
-            insertBucketsAfter(entries, CRIMSON_BUCKET.last(), WARPED_BUCKET);
+            var families = Stream.of(
+                OAK_BUCKET, SPRUCE_BUCKET, BIRCH_BUCKET, JUNGLE_BUCKET,
+                ACACIA_BUCKET, DARK_OAK_BUCKET, MANGROVE_BUCKET, CHERRY_BUCKET,
+                PALE_OAK_BUCKET, POPLAR_BUCKET, CRIMSON_BUCKET, WARPED_BUCKET
+            );
+
+            entries.insertAfter(Items.MILK_BUCKET, families
+                    .flatMap(buckets -> Stream.of(buckets.empty(), buckets.water(), buckets.lava()))
+                    .filter(Objects::nonNull)
+                    .map(ItemStack::new)
+                    .toList()
+            );
         });
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(entries -> {
