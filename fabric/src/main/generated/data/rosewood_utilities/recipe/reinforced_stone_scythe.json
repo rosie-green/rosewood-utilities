@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "M": "rosewood_utilities:reinforced_stone",
-    "S": "minecraft:stick"
+    "S": "#c:rods/wooden"
   },
   "pattern": [
     "MMM",

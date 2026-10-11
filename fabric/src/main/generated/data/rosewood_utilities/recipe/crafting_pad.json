@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "C": "minecraft:crafting_table",
-    "S": "minecraft:stick"
+    "S": "#c:rods/wooden"
   },
   "pattern": [
     " C",

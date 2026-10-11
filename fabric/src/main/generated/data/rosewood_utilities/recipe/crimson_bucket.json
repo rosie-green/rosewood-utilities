@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "M": "#rosewood_utilities:crimson_bark"
+  },
+  "pattern": [
+    "M M",
+    " M "
+  ],
+  "result": {
+    "id": "rosewood_utilities:crimson_bucket"
+  }
+}
